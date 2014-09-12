@@ -1,6 +1,6 @@
 [submodule "lib/cpucount"]
-	path = lib/cpucount
+	path = lib/shellfire/cpucount
 	url = https://github.com/shellfire-dev/cpucount.git
 [submodule "lib/core"]
-	path = lib/core
+	path = lib/shellfire/core
 	url = https://github.com/shellfire-dev/core.git
