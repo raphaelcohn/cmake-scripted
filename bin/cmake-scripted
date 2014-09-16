@@ -59,10 +59,11 @@ _program()
 
 readonly _program_name='cmake-scripted'
 readonly _program_version='unversioned'
-readonly _program_package='cmake-scripted'
+readonly _program_package_or_build=''
 readonly _program_copyright='(C) 2014 Raphael Cohn'
-readonly _program_licence='AGPLv3+'
-readonly _program_licence_description='GNU Affero GPL version 3 or later <http://gnu.org/licenses/gpl.html>.'
+readonly _program_licence='AGPLv3'
+# optionally add ' and others' - can be discovered from source control
+readonly _program_written_by='Raphael Cohn'
 readonly _program_path="$([ "${0%/*}" = "${0}" ] && printf '%s\n' '.' || printf '%s\n' "${0%/*}")"
 readonly _program_libPath="${_program_path}/../lib"
 readonly _program_etcPath="${_program_path}/../etc"
@@ -78,12 +79,14 @@ _program_commandLine_parseInitialise()
 
 _program_commandLine_helpMessage()
 {
-	_program_commandLine_helpMessage_description="Builds projects using CMake"
-	_program_commandLine_helpMessage_optionsAndNonOptions=" -- [cmake_scripted_projects...]"
-	_program_commandLine_helpMessage_usageMessage="Build projects"
-	_program_commandLine_helpMessage_argumentedOptions=""
-	_program_commandLine_helpMessage_argumentlessOptions=""
-	_program_commandLine_helpMessage_nonOptionArguments="cmake_scripted_projects is a list of projects to build"
+	_program_commandLine_helpMessage_usage="[OPTION]... -- [PROJECTS]..."
+	_program_commandLine_helpMessage_description="Builds projects using CMake."
+	_program_commandLine_helpMessage_options=""
+	_program_commandLine_helpMessage_optionsSpacing=''
+	_program_commandLine_helpMessage_configurationKeys=$'\n'
+	_program_commandLine_helpMessage_examples="
+  ${global_ourName} -v 2
+"
 }
 
 _program_commandLine_optionExists()
